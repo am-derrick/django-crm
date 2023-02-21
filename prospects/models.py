@@ -1,8 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractUser
 
 
-class User(AbstractBaseUser):
+class User(AbstractUser):
      pass
 
 class SalesRep(models.Model):
@@ -12,10 +12,6 @@ class SalesRep(models.Model):
      """
 
      user = models.OneToOneField(User, on_delete=models.CASCADE)
-     first_name = models.CharField(max_length=20)
-     last_name = models.CharField(max_length=20)
-     email = models.EmailField()
-     display_picture = models.ImageField(blank=True, null=True)
 
 
 class Prospect(models.Model):
@@ -36,4 +32,4 @@ class Prospect(models.Model):
      email = models.EmailField()
      display_picture = models.ImageField(blank=True, null=True)
      source = models.CharField(choices=PROSPECTIVE_SOURCES, max_length=100)
-     agent = models.ForeignKey("Agent", on_delete=models.CASCADE)
+     agent = models.ForeignKey("SalesRep", on_delete=models.CASCADE)
