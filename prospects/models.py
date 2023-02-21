@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 
 
+class User(AbstractBaseUser):
+     pass
+
 class SalesRep(models.Model):
      """
      Class representing information about the Sales
