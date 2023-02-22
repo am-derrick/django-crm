@@ -13,6 +13,9 @@ class SalesRep(models.Model):
 
      user = models.OneToOneField(User, on_delete=models.CASCADE)
 
+     def __str__(self):
+          return self.user.email
+
 
 class Prospect(models.Model):
      """
@@ -33,3 +36,6 @@ class Prospect(models.Model):
      display_picture = models.ImageField(blank=True, null=True)
      source = models.CharField(choices=PROSPECTIVE_SOURCES, max_length=100)
      agent = models.ForeignKey("SalesRep", on_delete=models.CASCADE)
+
+     def __str__(self):
+          return f"{self.first_name} {self.last_name}"
