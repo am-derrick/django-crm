@@ -9,5 +9,10 @@
   <body>
     <h1>Hello World</h1>
     <p>HTML template</p>
+    <ul>
+      {% for prospect in prospects %}
+      <li>{{ prospect }}</li>
+      {% endfor %}
+    </ul>
   </body>
 </html>
