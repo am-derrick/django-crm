@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Home</title>
+    <style>
+        .prospect {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 6px;
+            padding-left: 6px;
+            margin-top: 10px;
+            background-color: #f6f6f6;
+            width: 100%;
+        }
+    </style>
+  </head>
+
+  <body>
+    <h1>Random List</h1>
+    {% for prospect in prospects %}
+        <div class="prospect">
+            Name: <a href="/prospects/{{ prospect.pk }}">{{ prospect.first_name }} {{ prospect.last_name }}</a>
+            Age: {{ prospect.age }}
+            Email: {{ prospect.email }}
+    {% endfor %}
+  </body>
+</html>
